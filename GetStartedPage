@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GammaUND - Get Started</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GammaUND</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #121212;
-      color: #eee;
+      background-color: #121212;
+      color: #ffffff;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -17,61 +17,53 @@
       margin: 0;
     }
     h1 {
-      margin-bottom: 40px;
-      font-size: 3rem;
-      letter-spacing: 3px;
-      color: #4caf50;
+      font-size: 3em;
+      margin-bottom: 20px;
     }
-    button {
-      background-color: #4caf50;
-      border: none;
-      padding: 15px 30px;
-      color: white;
-      font-size: 1.25rem;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    button:hover {
-      background-color: #45a049;
-    }
-    .form-container {
-      margin-top: 30px;
+    #loginForm {
       display: none;
       flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
       width: 300px;
-    }
-    label {
-      margin: 10px 0 5px;
     }
     input {
       padding: 10px;
-      font-size: 1rem;
-      border-radius: 4px;
-      border: 1px solid #333;
+      font-size: 1em;
+    }
+    button {
+      padding: 10px;
+      font-size: 1em;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
     }
   </style>
 </head>
 <body>
   <h1>GammaUND</h1>
-  <button id="getStartedBtn">Get Started</button>
+  <button onclick="showLogin()">Get Started</button>
 
-  <div class="form-container" id="loginForm">
-    <label for="username">Roblox Username:</label>
-    <input type="text" id="username" placeholder="Enter username" />
-    
-    <label for="password">Password:</label>
-    <input type="password" id="password" placeholder="Enter password" />
+  <div id="loginForm">
+    <h3>Enter Roblox Account to Verify</h3>
+    <input type="text" placeholder="Roblox Username" id="username" />
+    <input type="password" placeholder="Roblox Password" id="password" />
+    <button onclick="verify()">Verify</button>
   </div>
 
   <script>
-    const btn = document.getElementById('getStartedBtn');
-    const form = document.getElementById('loginForm');
+    function showLogin() {
+      document.getElementById('loginForm').style.display = 'flex';
+    }
 
-    btn.addEventListener('click', () => {
-      form.style.display = 'flex';
-      btn.style.display = 'none';
-    });
+    function verify() {
+      alert("Verification feature is not available.");
+      // You can handle or simulate verification here if needed
+    }
   </script>
 </body>
 </html>
