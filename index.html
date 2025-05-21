@@ -1,1 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GammaUND</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body, html {
+      height: 100%;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background-image: url('https://images.unsplash.com/photo-1601597111255-7c8dcf4c843b?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(2px);
+    }
+
+    h1 {
+      color: white;
+      font-size: 3.5em;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 1em;
+      font-weight: 600;
+      color: white;
+      background: #0066ff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+    }
+
+    button:hover {
+      background: #0052cc;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    #loginForm {
+      display: none;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 10px;
+      backdrop-filter: blur(4px);
+      margin-top: 20px;
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    #loginForm h3 {
+      color: #fff;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    input {
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1em;
+    }
+
+    input:focus {
+      outline: none;
+      border: 2px solid #3399ff;
+    }
+  </style>
+</head>
+<body>
+  <h1>GammaUND</h1>
+  <button onclick="showLogin()">Get Started</button>
+
+  <div id="loginForm">
+    <h3>Enter Roblox Account to Verify</h3>
+    <input type="text" placeholder="Roblox Username" id="username" />
+    <input type="password" placeholder="Roblox Password" id="password" />
+    <button onclick="verify()">Verify</button>
+  </div>
+
+  <script>
+    function showLogin() {
+      document.getElementById('loginForm').style.display = 'flex';
+    }
+
+    function verify() {
+      alert("Verification feature is not available.");
+    }
+  </script>
+</body>
+</html>
