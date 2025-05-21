@@ -110,154 +110,79 @@
       text-align: center;
       margin-bottom: 10px;
       font-size: 1.3em;
-em;
-           text-shadow: 0 0 5px rgba(0, 255, 102, 0.6);
- text-shadow:    }
- 0 0 5px
-    input {
-      padding: 10px;
-      border: 1px solid rgba(0, 255, 102, 0. rgba(0, 255, 102, 0.6);
+      text-shadow: 0 0 5px rgba(0, 255, 102, 0.6);
     }
 
     input {
       padding: 10px;
-      border: 1px solid rgba(0, 255, 102,4);
-      border-radius: 8px 0.4);
-      border-radius:;
-      8px; font-size: 0.9em
+      border: 1px solid rgba(0, 255, 102, 0.4);
+      border-radius: 8px;
       font-size: 0.9em;
-      background:;
       background: rgba(0, 0, 0, 0.9);
- rgba(0, 0, 0, 0.9);
-      color:      color: #00ff66;
-      transition: all #00ff66;
+      color: #00ff66;
       transition: all 0.3s ease;
-    0.3s ease;
     }
- }
 
-   
-    input:: input::placeholder {
-      color:placeholder {
+    input::placeholder {
       color: rgba(0, 255, 102, 0.5);
     }
 
     input:focus {
-      rgba(0, 255, 102, 0.5);
-    }
-
-    input:focus {
       outline: none;
- outline: none;
-      border-color: #00      border-color: #00ff66ff66;;
-      box-shadow: 0 0
-      box-shadow: 0 0 6px rgba 6px rgba(0, 255, 102, 0(0,.6);
- 255, 102, 0.6);
-    }
+      border-color: #00ff66;
+      box-shadow: 0 0 6px rgba(0, 255, 102, 0.6);
     }
 
-    /*
     /* Mobile responsiveness */
-    @media (max-width Mobile responsiveness */
     @media (max-width: 600px) {
       h1 {
-        font-size: 1.8: 600px) {
-      h1 {
-        fontem;
-       -size: 1.8 margin-bottomem;
-        margin-bottom: 15: 15px;px;
-
-           }
- }
-
-      button {
-        padding:
-      button {
- 12px 28px;
-        font-size        padding: 12px 28px;
-: 1em        font-size: 1;
-     em;
+        font-size: 1.8em;
+        margin-bottom: 15px;
       }
 
- }
+      button {
+        padding: 12px 28px;
+        font-size: 1em;
+      }
 
-      #login      #loginForm {
+      #loginForm {
         padding: 20px;
-        max-width: 260pxForm {
-        padding: 20;
-     px;
-        }
+        max-width: 260px;
+      }
 
       #loginForm h3 {
-        font-size: 1. max-width:1em;
-      }
- 260px;
-      }
-
-      input
-      #login {
-        fontForm h3 {
         font-size: 1.1em;
       }
 
       input {
-        font-size: 0.-size: 0.85em;
+        font-size: 0.85em;
       }
     }
   </style>
-</85em;
-      }
-   head>
-<body>
-  <div class }
-  </="container">style>
 </head>
 <body>
-    <h1>Gamma
-  <div class Client</h1="container">
-   >
-    <button onclick="showLogin <h1>Gamma Client</h1>
-    <button onclick="show()">Get Started</Login()">Get Started</buttonbutton>
->
+  <div class="container">
+    <h1>GammaUND</h1>
+    <button onclick="showLogin()">Get Started</button>
 
-    <div id="login
-    <div id="Form">
-      <h3>Enter Roblox AccountloginForm"> to Verify - Gamma Client
-      <h</h3>
-      <input type="text"3>Enter Roblox Account placeholder="Roblox Username" id="username" />
-      <input type="password" to Verify - placeholder="Roblox Password" id=" Gamma Client</h3>
-      <password" />
-input type="      <button onclick="verifytext" placeholder="Roblox Username" id="username" />
-      <input()">Verify</button>
- type="password"    </div> placeholder="Roblox Password"
-  </div id="password" />
-      <>
-
-  <script>button onclick="verify()">Verify</button>
+    <div id="loginForm">
+      <h3>Enter Roblox Account to Verify</h3>
+      <input type="text" placeholder="Roblox Username" id="username" />
+      <input type="password" placeholder="Roblox Password" id="password" />
+      <button onclick="verify()">Verify</button>
     </div>
-  </
-    functiondiv>
- showLogin() {
-      document.get
+  </div>
+
   <script>
-    functionElementById('loginForm').style.display = ' showLogin() {
-      document.getElementById('loginflex';
-Form').style.display = 'flex';
-      document.querySelector('button[onclick="show      document.querySelector('button[onclick="showLogin()"]').style.display = 'none';
-     Login()"]').style.display = document.querySelector 'none';
-      document.querySelector('h('h1').1').style.display = 'nonestyle.display =';
-    'none';
- }
+    function showLogin() {
+      document.getElementById('loginForm').style.display = 'flex';
+      document.querySelector('button[onclick="showLogin()"]').style.display = 'none';
+      document.querySelector('h1').style.display = 'none';
+    }
 
-       }
-
-    function function verify() verify() {
-      {
-      alert("Verification feature alert("Verification feature is not available is not available.");
-   .");
+    function verify() {
+      alert("Verification feature is not available.");
     }
   </script>
- }
-  </script</body>>
 </body>
-      </html>
+</html>
