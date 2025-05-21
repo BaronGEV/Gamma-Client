@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GammaUND - Get Started</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #121212;
+      color: #eee;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      margin-bottom: 40px;
+      font-size: 3rem;
+      letter-spacing: 3px;
+      color: #4caf50;
+    }
+    button {
+      background-color: #4caf50;
+      border: none;
+      padding: 15px 30px;
+      color: white;
+      font-size: 1.25rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .form-container {
+      margin-top: 30px;
+      display: none;
+      flex-direction: column;
+      width: 300px;
+    }
+    label {
+      margin: 10px 0 5px;
+    }
+    input {
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 4px;
+      border: 1px solid #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>GammaUND</h1>
+  <button id="getStartedBtn">Get Started</button>
+
+  <div class="form-container" id="loginForm">
+    <label for="username">Roblox Username:</label>
+    <input type="text" id="username" placeholder="Enter username" />
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" placeholder="Enter password" />
+  </div>
+
+  <script>
+    const btn = document.getElementById('getStartedBtn');
+    const form = document.getElementById('loginForm');
+
+    btn.addEventListener('click', () => {
+      form.style.display = 'flex';
+      btn.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
