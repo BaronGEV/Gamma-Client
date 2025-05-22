@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Verification Success</title>
+  <title>Gamma Client Downloads</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -50,15 +50,41 @@
       opacity: 0;
       animation: fadeIn 1s ease-in forwards;
     }
-    p {
-      color: #00ff66;
-      font-size: 1.2em;
+    .download-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
       margin-bottom: 30px;
-      text-shadow: 0 0 5px rgba(0, 255, 102, 0.6);
-      opacity: 0;
-      animation: fadeIn 1s ease-in 0.3s forwards;
+      width: 100%;
+      max-width: 300px;
     }
-    button {
+    .download-button {
+      padding: 14px 32px;
+      font-size: 1.1em;
+      font-weight: 600;
+      color: #000000;
+      background: #00ff66;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 12px rgba(0, 255, 102, 0.7), inset 0 0 4px rgba(0, 255, 102, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
+      display: block;
+      text-align: center;
+    }
+    .download-button:hover {
+      background: #00e65c;
+      box-shadow: 0 0 18px rgba(0, 255, 102, 0.9), inset 0 0 6px rgba(0, 255, 102, 0.5);
+      transform: translateY(-2px);
+    }
+    .download-button:active {
+      transform: scale(0.95);
+      box-shadow: 0 0 8px rgba(0, 255, 102, 0.5);
+    }
+    .back-button {
       padding: 14px 32px;
       font-size: 1.1em;
       font-weight: 600;
@@ -72,12 +98,12 @@
       text-transform: uppercase;
       letter-spacing: 1px;
     }
-    button:hover {
+    .back-button:hover {
       background: #00e65c;
       box-shadow: 0 0 18px rgba(0, 255, 102, 0.9), inset 0 0 6px rgba(0, 255, 102, 0.5);
       transform: translateY(-2px);
     }
-    button:active {
+    .back-button:active {
       transform: scale(0.95);
       box-shadow: 0 0 8px rgba(0, 255, 102, 0.5);
     }
@@ -89,10 +115,10 @@
         font-size: 1.8em;
         margin-bottom: 15px;
       }
-      p {
-        font-size: 1em;
+      .download-list {
+        max-width: 260px;
       }
-      button {
+      .download-button, .back-button {
         padding: 12px 28px;
         font-size: 1em;
       }
@@ -101,9 +127,15 @@
 </head>
 <body>
   <div class="container">
-    <h1>Verification Successful</h1>
-    <p>Your account has been verified. Thank you!</p>
-    <button onclick="window.location.href='index.html'">Back to Home</button>
+    <h1>Gamma Client Downloads</h1>
+    <div class="download-list">
+      <a href="#" class="download-button">Gamma Client v1.0.0</a>
+      <a href="#" class="download-button">Gamma Client v1.0.1</a>
+      <a href="#" class="download-button">Gamma Client v1.0.2</a>
+      <a href="#" class="download-button">Gamma Client v1.0.3</a>
+      <a href="#" class="download-button">Gamma Client v1.0.4</a>
+    </div>
+    <button class="back-button" onclick="window.location.href='index.html'">Back to Home</button>
   </div>
 </body>
 </html>
