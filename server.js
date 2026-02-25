@@ -94,7 +94,7 @@ app.post("/tts", async (req, res) => {
 
     try {
         const response = await fetch(
-            "https://api.elevenlabs.io/v1/text-to-speech/YOUR_VOICE_ID",
+            "https://api.elevenlabs.io/v1/text-to-speech/wXvR48IpOq9HACltTmt7",
             {
                 method: "POST",
                 headers: {
@@ -134,3 +134,4 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log("Server running on port", PORT);
 });
+
